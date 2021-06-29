@@ -724,7 +724,7 @@ class Guacamole:
         """
         Add Connection to User
         Example add payload:
-        [{"op": "add", "path": "/connectionGroupsPermissions/{{connectionId}}", "value": "READ"}]
+        [{"op": "add", "path": "/connectionGroupPermissions/{{connectionId}}", "value": "READ"}]
         """
         if not datasource:
             datasource = self.primary_datasource
