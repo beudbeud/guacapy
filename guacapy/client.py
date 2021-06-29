@@ -706,25 +706,10 @@ class Guacamole:
 
     def add_user_connections(self, username, payload, datasource=None):
         """
-        Add Connection to User
+        Add Permission to connection
         Example add payload:
         [{"op": "add", "path": "/connectionPermissions/{{connectionId}}", "value": "READ"}]
-        """
-        if not datasource:
-            datasource = self.primary_datasource
-        return self.__auth_request(
-            method="PATCH",
-            url="{}/session/data/{}/users/{}/permissions".format(
-                self.REST_API, datasource, username
-            ),
-            payload=payload,
-            json_response=False,
-        )
-    def add_user_connections_group(self, username, payload, datasource=None):
-        """
-        Add Connection to User
-        Example add payload:
-        [{"op": "add", "path": "/connectionGroupPermissions/{{connectionId}}", "value": "READ"}]
+        [{"op": "add", "path": "/connectionGroupPermissions/{{GroupId}}", "value": "READ"}]
         """
         if not datasource:
             datasource = self.primary_datasource
